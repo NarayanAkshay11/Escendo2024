@@ -5,6 +5,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 import warnings
 warnings.filterwarnings('ignore')
+import joblib
 
 
 def augment_data(data, columns_to_augment, scale_factor=0.001, random_seed=42):
@@ -46,3 +47,4 @@ r2 = r2_score(y_test, y_pred)
 
 print(f'Mean Squared Error: {mse}')
 print(f'R-squared: {r2}')
+joblib.dump(decision_tree_model, 'escendo_model.joblib')
